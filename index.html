@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Wasay | Professional Web Developer</title>
+  <title>Syed Wasay | Web Development Expert</title>
   <meta name="description" content="Expert in Shopify & WordPress Web Development | eCommerce Manager">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
     :root {
       --primary: #2563eb;
-      --secondary: #7c3aed;
+      --secondary: #6366f1;
       --dark: #0f172a;
       --light: #ffffff;
       --gray-50: #f8fafc;
@@ -20,111 +20,135 @@
       --gray-200: #e2e8f0;
       --text-main: #1e293b;
       --text-muted: #64748b;
-      --glass: rgba(255, 255, 255, 0.7);
+      --accent: #f59e0b;
       
-      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      --radius: 12px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --shadow-md: 0 10px 30px -10px rgba(0,0,0,0.08);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body { 
-      font-family: 'Inter', sans-serif; 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
       background-color: var(--gray-50); 
       color: var(--text-main); 
-      line-height: 1.7;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Navigation */
+    /* Navigation - Improved Visual Blur */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: var(--glass);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--gray-200);
-      display: flex; justify-content: center; padding: 1rem;
+      display: flex; justify-content: center; padding: 1.2rem;
     }
     nav a {
-      margin: 0 1rem; font-weight: 500; font-size: 0.9rem;
+      margin: 0 1.2rem; font-weight: 600; font-size: 0.85rem;
       text-decoration: none; color: var(--text-main);
       transition: var(--transition);
-      text-transform: uppercase; letter-spacing: 1px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      position: relative;
     }
+    nav a::after {
+      content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+      background: var(--primary); transition: var(--transition);
+    }
+    nav a:hover::after { width: 100%; }
     nav a:hover, nav a.active { color: var(--primary); }
 
-    /* Hero Section */
+    /* Hero Section - Refined Typography */
     .hero {
-      height: 90vh; display: flex; align-items: center; justify-content: center;
-      background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.05), transparent),
-                  radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.05), transparent);
+      height: 95vh; display: flex; align-items: center; justify-content: center;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
       text-align: center; padding: 2rem;
     }
-    .hero h1 { font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
-    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
-    .highlight { background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; line-height: 1; margin-bottom: 1.5rem; letter-spacing: -2px; }
+    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; font-weight: 400; }
+    .highlight { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
     /* Layout & Sections */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .section { padding: 8rem 0; }
-    .section-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 3rem; text-align: center; position: relative; }
-    .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary); margin: 1rem auto; border-radius: 2px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: 100px 0; }
+    .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 4rem; text-align: center; letter-spacing: -1px; }
 
-    /* Cards */
-    .card {
-      background: var(--light); border-radius: var(--radius); padding: 3rem;
+    /* Refined About Section */
+    .about-card {
+      background: var(--light); border-radius: var(--radius-lg); padding: 4rem;
       border: 1px solid var(--gray-200); box-shadow: var(--shadow-md);
+      position: relative; overflow: hidden;
     }
-
-    /* Grids */
-    .grid { display: grid; gap: 2rem; }
-    .skills-grid, .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-
-    .skill-item, .service-item {
-      padding: 1.5rem; background: var(--gray-50); border-radius: var(--radius);
-      display: flex; align-items: center; gap: 1rem; transition: var(--transition);
-      border: 1px solid transparent;
+    .about-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
+      background: var(--primary);
     }
-    .skill-item:hover { border-color: var(--primary); background: var(--light); transform: translateY(-5px); }
-    .skill-item i { color: var(--primary); font-size: 1.5rem; }
+    .about-text { font-size: 1.15rem; color: var(--text-main); }
+    .about-text strong { color: var(--primary); font-weight: 700; }
 
-    /* Portfolio Items */
+    /* Skills & Services Grid */
+    .grid { display: grid; gap: 1.5rem; }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+    .skill-item {
+      padding: 1.5rem; background: var(--light); border-radius: var(--radius-md);
+      display: flex; align-items: center; gap: 1.2rem; transition: var(--transition);
+      border: 1px solid var(--gray-200);
+    }
+    .skill-item:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+    .skill-item i { background: rgba(37, 99, 235, 0.1); color: var(--primary); width: 50px; height: 50px; 
+                    display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 1.2rem; }
+
+    /* Portfolio - Removing Imperfections */
     .portfolio-item {
-      background: var(--light); border-radius: var(--radius); padding: 1.5rem;
+      background: var(--light); border-radius: var(--radius-md); padding: 2rem;
       text-decoration: none; color: inherit; border: 1px solid var(--gray-200);
-      transition: var(--transition); position: relative; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: center; height: 140px;
+      transition: var(--transition); height: 100%; display: flex; flex-direction: column;
+      justify-content: space-between;
     }
-    .portfolio-item:hover { transform: scale(1.03); border-color: var(--primary); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-    .portfolio-item-content { font-weight: 600; display: flex; align-items: center; gap: 0.75rem; font-size: 1.1rem; }
-    .portfolio-item-content i { font-size: 0.9rem; color: var(--primary); }
-    .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-top: 0.5rem; font-weight: 700; }
+    .portfolio-item:hover { background: var(--dark); color: white; border-color: var(--dark); }
+    .portfolio-item-content { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; font-weight: 800; }
 
     /* Buttons */
     .btn {
-      padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 600;
-      display: inline-block; transition: var(--transition); cursor: pointer;
+      padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700;
+      display: inline-block; transition: var(--transition); cursor: pointer; border: none;
     }
-    .btn-primary { background: var(--primary); color: var(--light); box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); }
-    .btn-primary:hover { background: var(--secondary); transform: translateY(-3px); }
-    .btn-outline { border: 2px solid var(--primary); color: var(--primary); margin-left: 1rem; }
+    .btn-primary { background: var(--primary); color: var(--light); box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4); }
+    .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.5); }
+    .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
 
-    /* Float & Footer */
-    .whatsapp-float {
-      position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px;
-      background: #25D366; color: white; border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 100;
+    /* Contact Card */
+    .contact-card {
+      background: var(--dark); color: white; border-radius: var(--radius-lg); padding: 5rem 2rem;
+      text-align: center;
     }
-    footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--gray-200); background: white; }
-    .social-links { margin-bottom: 2rem; }
-    .social-links a { font-size: 1.5rem; margin: 0 1rem; color: var(--text-muted); transition: var(--transition); }
-    .social-links a:hover { color: var(--primary); }
+    .contact-card h2 { color: white; }
+    .contact-card p { color: #94a3b8; margin-bottom: 3rem; font-size: 1.1rem; }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px;
+      background: #25D366; color: white; border-radius: 50%; display: flex;
+      align-items: center; justify-content: center; font-size: 2.2rem; 
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); z-index: 1000; transition: var(--transition);
+    }
+    .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+
+    footer { padding: 5rem 0; text-align: center; border-top: 1px solid var(--gray-200); }
 
     @media (max-width: 768px) {
-      .section { padding: 4rem 0; }
-      nav { overflow-x: auto; justify-content: flex-start; }
-      .hero h1 { font-size: 2.5rem; }
-      .portfolio-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 3.5rem; }
+      .about-card { padding: 2rem; }
+      .section-title { font-size: 2rem; }
+      nav { justify-content: space-around; padding: 1rem 0.5rem; }
+      nav a { margin: 0 0.5rem; font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -140,188 +164,90 @@
 
   <header class="hero">
     <div class="container">
-      <h1 data-aos="fade-up"><span class="highlight">Syed Wasay</span></h1>
+      <h1 data-aos="fade-down"><span class="highlight">Syed Wasay</span></h1>
       <p data-aos="fade-up" data-aos-delay="100">Expert in Shopify & WordPress Web Development | eCommerce Manager</p>
       <div data-aos="fade-up" data-aos-delay="200">
-        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        <a href="#contact" class="btn btn-primary">Start a Project</a>
       </div>
     </div>
   </header>
 
   <main class="container">
     <section id="about" class="section">
-      <div class="card" data-aos="fade-up">
-        <h2 class="section-title">About Me</h2>
-        <p>I build responsive, visually appealing, and fast-loading websites using Shopify, WordPress. I create online stores that not only look amazing but also work seamlessly.</p>
-        <br>
-        <p>I've managed eCommerce stores end-to-end, including product uploads, content updates, inventory tracking, and order handling. I also list products on platforms like Daraz and Amazon, helping brands expand their digital reach effectively.</p>
+      <div class="about-card" data-aos="fade-up">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Problem Solver & Web Expert</h2>
+        <div class="about-text">
+          <p>With <strong>over 2 years of experience</strong> in web development, I have established myself as a technical expert specializing in the <strong>Shopify and WordPress</strong> ecosystems, as well as high-performance custom HTML/CSS static websites.</p>
+          <br>
+          <p>My core strength lies in being a <strong>technical problem solver</strong>. I don't just build sites; I make a merchant's life easier. I am highly capable of <strong>editing Shopify themes via code</strong> to add advanced functionalities that are either missing or too expensive to maintain through monthly app subscriptions. By injecting custom Liquid and Javascript, I help business owners reduce overhead costs and improve site performance.</p>
+          <br>
+          <p>From listing <strong>countless products</strong> with precision to managing complex end-to-end eCommerce workflows, I ensure that every digital storefront is optimized for conversions and seamless user experience.</p>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="section">
-      <h2 class="section-title">Professional Skills</h2>
+      <h2 class="section-title">Technical Expertise</h2>
       <div class="grid skills-grid">
-        <div class="skill-item" data-aos="zoom-in"><i class="fas fa-store"></i><span>Shopify Development & Customization</span></div>
-        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fab fa-wordpress"></i><span>WordPress Development & Plugin Integration</span></div>
-        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-shopping-cart"></i><span>eCommerce Store Management</span></div>
-        <div class="skill-item" data-aos="zoom-in"><i class="fas fa-boxes"></i><span>Product Listing (Daraz, Amazon, Shopify)</span></div>
-        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-mobile-alt"></i><span>Responsive Web Design</span></div>
-        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-tachometer-alt"></i><span>Performance Optimization</span></div>
-        <div class="skill-item" data-aos="zoom-in"><i class="fas fa-paint-brush"></i><span>Interactive UI/UX Elements</span></div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <h2 class="section-title">Services</h2>
-      <div class="grid services-grid">
-        <div class="service-item" data-aos="fade-up"><i class="fas fa-cogs"></i><span>Complete Shopify Store Setup</span></div>
-        <div class="service-item" data-aos="fade-up" data-aos-delay="100"><i class="fab fa-wordpress"></i><span>WordPress Website Creation</span></div>
-        <div class="service-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-upload"></i><span>Content & Product Uploading</span></div>
-        <div class="service-item" data-aos="fade-up"><i class="fas fa-code"></i><span>Custom HTML/CSS Block Creation</span></div>
+        <div class="skill-item" data-aos="fade-up"><i class="fas fa-code"></i><span>Shopify Liquid & Theme Customization</span></div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><i class="fab fa-wordpress"></i><span>WordPress Development & Optimization</span></div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-laptop-code"></i><span>Custom HTML, CSS & JS Static Sites</span></div>
+        <div class="skill-item" data-aos="fade-up"><i class="fas fa-database"></i><span>Precision Product Listing & Management</span></div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-rocket"></i><span>Performance & Page Speed Optimization</span></div>
+        <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-shield-alt"></i><span>App-Free Custom Functionality Injection</span></div>
       </div>
     </section>
 
     <section id="portfolio" class="section">
-      <h2 class="section-title">Portfolio</h2>
+      <h2 class="section-title">Case Studies & Projects</h2>
       <div class="grid portfolio-grid">
-        <a href="https://fatimamumtaz.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Fatima Mumtaz</div>
-            <span class="tag">WordPress</span>
+        <a href="https://fatimamumtaz.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Fatima Mumtaz</div>
+          <span class="tag">WordPress Expert</span>
         </a>
-        <a href="http://duratonsafety.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Duraton Safety</div>
-            <span class="tag">Custom HTML/CSS/JS</span>
+        <a href="http://duratonsafety.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Duraton Safety</div>
+          <span class="tag">Custom HTML/CSS/JS</span>
         </a>
-        <a href="http://www.fdmcommodities.com" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> FDM Commodities</div>
-            <span class="tag">WordPress</span>
+        <a href="https://surimoon.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Suri Moon</div>
+          <span class="tag">Shopify Theme Edit</span>
         </a>
-        <a href="https://www.magicluxuryservice.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Magic Luxury Services</div>
-            <span class="tag">WordPress</span>
+        <a href="https://brokenhornleather.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Brokenhorn Leather</div>
+          <span class="tag">Shopify Development</span>
         </a>
-        <a href="https://kenneyzmediacity.com" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Kenneyz Media City</div>
-            <span class="tag">WordPress</span>
+        <a href="https://kenneyzgroup.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Kenneyz Group</div>
+          <span class="tag">WordPress Business</span>
         </a>
-        <a href="https://kenneyzproductions.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Kenneyz Productions</div>
-            <span class="tag">WordPress</span>
+        <a href="https://magicremote.co.uk/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Magic Remote UK</div>
+          <span class="tag">Shopify Store</span>
         </a>
-        <a href="https://music.kenneyzproductions.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Kenneyz Music</div>
-            <span class="tag">WordPress</span>
+        <a href="https://caliberwardrobe.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Caliber Wardrobe</div>
+          <span class="tag">Shopify eCommerce</span>
         </a>
-        <a href="https://kenneyzgroup.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Kenneyz Group</div>
-            <span class="tag">WordPress</span>
+        <a href="https://mirzaadsexpert.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Mirza Ads Expert</div>
+          <span class="tag">WordPress Development</span>
         </a>
-        <a href="https://surimoon.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Suri Moon</div>
-            <span class="tag">Shopify</span>
+        <a href="https://agyclothing.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
+          <div class="portfolio-item-content">Agy Clothing</div>
+          <span class="tag">Shopify Brand</span>
         </a>
-        <a href="https://amandamarinospeaks.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Amanda Marino Speaks</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://brokenhornleather.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Brokenhorn Leather</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://milano-bags.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Milano Bags</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://rennafashion.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Renna Fashion</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://elegancestep.pk/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Elegance Step</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://www.parishfootwear.pk/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Parish Footwear</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://khairulwara.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Khair Ul Wara</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://www.cosmosbro.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> CosmosBro</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://muddyfigs.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Muddy Figs</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://ilspak.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> ILSPAK</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://magicremote.co.uk/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Magic Remote UK</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://alfredomartini.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Alfredo Martini</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://mirzaadsexpert.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Mirza Ads Expert</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://agyclothing.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Agy Clothing</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://caliberwardrobe.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Caliber Wardrobe</div>
-            <span class="tag">Shopify</span>
-        </a>
-        <a href="https://beautyvente.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Beauty Vente</div>
-            <span class="tag">Shopify / WordPress</span>
-        </a>
-        <a href="https://printbakeryco.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Print Bakery</div>
-            <span class="tag">E-Commerce</span>
-        </a>
-        <a href="https://aftabimpexaus.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Aftab Impex</div>
-            <span class="tag">E-Commerce</span>
-        </a>
-        <a href="https://kaldilegacy.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Kaldi Legacy</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="http://ashrafsourcing.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Ashraf Sourcing</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://crownglobaltradingpk.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Crown Global Trading</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://progressmountainpt.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Progress Mountain</div>
-            <span class="tag">WordPress</span>
-        </a>
-        <a href="https://medicalhrf.com/" target="_blank" class="portfolio-item" data-aos="fade-up">
-            <div class="portfolio-item-content"><i class="fas fa-link"></i> Medical HRF</div>
-            <span class="tag">WordPress</span>
-        </a>
-      </div>
+        </div>
+      <p style="text-align: center; margin-top: 3rem; color: var(--text-muted);">+ Over 20 more premium deployments</p>
     </section>
 
     <section id="contact" class="section">
-      <div class="card" style="text-align: center;" data-aos="fade-up">
-        <h2 class="section-title">Contact Me</h2>
-        <p>Looking for a reliable web developer who can handle your entire online presence? I'm available for freelance projects, long-term work, or collaborations.</p>
-        <div style="margin-top: 3rem;">
-          <a href="mailto:wasayazeem2167@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
-          <a href="tel:+923428351577" class="btn btn-outline"><i class="fas fa-phone"></i> Call Me</a>
+      <div class="contact-card" data-aos="flip-up">
+        <h2 class="section-title">Let's Simplify Your Business</h2>
+        <p>Whether you need a custom Shopify feature or a high-converting WordPress site, I am ready to help.</p>
+        <div>
+          <a href="mailto:wasayazeem2167@gmail.com" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Email Me</a>
+          <a href="tel:+923428351577" class="btn btn-outline" style="color: white; border-color: white; margin-top: 1rem;"><i class="fas fa-phone"></i> Call Direct</a>
         </div>
       </div>
     </section>
@@ -330,23 +256,25 @@
   <a href="https://wa.me/923428351577" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
   <footer>
-    <div class="social-links">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-    </div>
-    <p>&copy; <span id="year"></span> Syed Wasay. All rights reserved.</p>
+    <p>&copy; <span id="year"></span> Syed Wasay. Strategic Web Solutions.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init({ duration: 1000, once: true });
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Smooth scroll with offset for nav
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        const navHeight = document.querySelector('nav').offsetHeight;
+        window.scrollTo({
+          top: targetElement.offsetTop - navHeight,
+          behavior: 'smooth'
+        });
       });
     });
   </script>
