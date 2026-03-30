@@ -1,282 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Wasay | Web Development Expert</title>
-  <meta name="description" content="Expert in Shopify & WordPress Web Development | eCommerce Manager">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <style>
-    :root {
-      --primary: #2563eb;
-      --secondary: #6366f1;
-      --dark: #0f172a;
-      --light: #ffffff;
-      --gray-50: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --accent: #f59e0b;
-      
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --shadow-md: 0 10px 30px -10px rgba(0,0,0,0.08);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Wasay | Next-Gen Web Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #0d0d0d;
+            --primary: #3b82f6;
+            --accent: #60a5fa;
+            --text-dim: #94a3b8;
+            --text-bright: #f8fafc;
+            --border: #1e293b;
+            --glow: rgba(59, 130, 246, 0.15);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      background-color: var(--gray-50); 
-      color: var(--text-main); 
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-bright); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-    /* Navigation - Improved Visual Blur */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--gray-200);
-      display: flex; justify-content: center; padding: 1.2rem;
-    }
-    nav a {
-      margin: 0 1.2rem; font-weight: 600; font-size: 0.85rem;
-      text-decoration: none; color: var(--text-main);
-      transition: var(--transition);
-      text-transform: uppercase; letter-spacing: 1.5px;
-      position: relative;
-    }
-    nav a::after {
-      content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
-      background: var(--primary); transition: var(--transition);
-    }
-    nav a:hover::after { width: 100%; }
-    nav a:hover, nav a.active { color: var(--primary); }
+        h1, h2, h3, .nav-logo { font-family: 'Space Grotesk', sans-serif; }
 
-    /* Hero Section - Refined Typography */
-    .hero {
-      height: 95vh; display: flex; align-items: center; justify-content: center;
-      background: 
-        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
-      text-align: center; padding: 2rem;
-    }
-    .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; line-height: 1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem; font-weight: 400; }
-    .highlight { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
-    /* Layout & Sections */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .section { padding: 100px 0; }
-    .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 4rem; text-align: center; letter-spacing: -1px; }
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 0; background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+        }
+        .nav-container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; margin-left: 2rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-    /* Refined About Section */
-    .about-card {
-      background: var(--light); border-radius: var(--radius-lg); padding: 4rem;
-      border: 1px solid var(--gray-200); box-shadow: var(--shadow-md);
-      position: relative; overflow: hidden;
-    }
-    .about-card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
-      background: var(--primary);
-    }
-    .about-text { font-size: 1.15rem; color: var(--text-main); }
-    .about-text strong { color: var(--primary); font-weight: 700; }
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding: 0 1rem; }
+        .hero-glow { position: absolute; width: 40vw; height: 40vw; background: var(--glow); filter: blur(120px); border-radius: 50%; z-index: -1; top: 20%; }
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 700; line-height: 0.9; margin-bottom: 1.5rem; letter-spacing: -3px; }
+        .hero p { color: var(--text-dim); font-size: clamp(1rem, 2vw, 1.25rem); max-width: 700px; margin-bottom: 3rem; }
 
-    /* Skills & Services Grid */
-    .grid { display: grid; gap: 1.5rem; }
-    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .portfolio-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        /* Section Styling */
+        .section { padding: 120px 0; max-width: 1300px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+        .section-header { margin-bottom: 4rem; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -1px; }
 
-    .skill-item {
-      padding: 1.5rem; background: var(--light); border-radius: var(--radius-md);
-      display: flex; align-items: center; gap: 1.2rem; transition: var(--transition);
-      border: 1px solid var(--gray-200);
-    }
-    .skill-item:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: var(--shadow-md); }
-    .skill-item i { background: rgba(37, 99, 235, 0.1); color: var(--primary); width: 50px; height: 50px; 
-                    display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 1.2rem; }
+        /* Bento Grid About */
+        .about-bento { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+        .bento-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; transition: var(--transition); }
+        .bento-card:hover { border-color: var(--primary); box-shadow: 0 0 30px var(--glow); }
 
-    /* Portfolio - Removing Imperfections */
-    .portfolio-item {
-      background: var(--light); border-radius: var(--radius-md); padding: 2rem;
-      text-decoration: none; color: inherit; border: 1px solid var(--gray-200);
-      transition: var(--transition); height: 100%; display: flex; flex-direction: column;
-      justify-content: space-between;
-    }
-    .portfolio-item:hover { background: var(--dark); color: white; border-color: var(--dark); }
-    .portfolio-item-content { font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; font-weight: 800; }
+        /* Portfolio Filter */
+        .filter-container { display: flex; gap: 1rem; margin-bottom: 3rem; overflow-x: auto; padding-bottom: 1rem; }
+        .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--text-dim); padding: 0.75rem 1.5rem; border-radius: 50px; cursor: pointer; transition: var(--transition); font-weight: 600; white-space: nowrap; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); border-color: var(--primary); color: white; }
 
-    /* Buttons */
-    .btn {
-      padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 700;
-      display: inline-block; transition: var(--transition); cursor: pointer; border: none;
-    }
-    .btn-primary { background: var(--primary); color: var(--light); box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4); }
-    .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.5); }
-    .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        /* Futuristic Project Cards */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; }
+        .project-card { 
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; 
+            padding: 2rem; text-decoration: none; position: relative; overflow: hidden;
+            display: flex; flex-direction: column; transition: var(--transition);
+        }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .project-card .type-tag { font-size: 0.65rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; font-weight: 800; }
+        .project-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-bright); }
+        .project-card .link-icon { position: absolute; top: 2rem; right: 2rem; opacity: 0.3; transition: var(--transition); }
+        .project-card:hover .link-icon { opacity: 1; transform: rotate(45deg) scale(1.2); color: var(--primary); }
+        
+        .special-tag { background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; margin-top: 10px; display: inline-block; }
 
-    /* Contact Card */
-    .contact-card {
-      background: var(--dark); color: white; border-radius: var(--radius-lg); padding: 5rem 2rem;
-      text-align: center;
-    }
-    .contact-card h2 { color: white; }
-    .contact-card p { color: #94a3b8; margin-bottom: 3rem; font-size: 1.1rem; }
+        /* Contact Section */
+        .contact-box { background: linear-gradient(145deg, #0d0d0d, #050505); border: 1px solid var(--border); border-radius: 30px; padding: 5rem 2rem; text-align: center; }
+        .btn-glow { 
+            background: var(--primary); color: white; padding: 1.2rem 3rem; border-radius: 50px; 
+            text-decoration: none; font-weight: 700; display: inline-block; margin: 10px;
+            box-shadow: 0 0 20px var(--glow); transition: var(--transition);
+        }
+        .btn-glow:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--glow); }
 
-    /* Floating WhatsApp */
-    .whatsapp-float {
-      position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px;
-      background: #25D366; color: white; border-radius: 50%; display: flex;
-      align-items: center; justify-content: center; font-size: 2.2rem; 
-      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3); z-index: 1000; transition: var(--transition);
-    }
-    .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+        /* WhatsApp */
+        .wa-float { position: fixed; bottom: 2rem; right: 2rem; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; z-index: 1000; transition: var(--transition); }
+        .wa-float:hover { transform: rotate(15deg) scale(1.1); }
 
-    footer { padding: 5rem 0; text-align: center; border-top: 1px solid var(--gray-200); }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 3.5rem; }
-      .about-card { padding: 2rem; }
-      .section-title { font-size: 2rem; }
-      nav { justify-content: space-around; padding: 1rem 0.5rem; }
-      nav a { margin: 0 0.5rem; font-size: 0.7rem; }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-bento { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </nav>
 
-  <header class="hero">
-    <div class="container">
-      <h1 data-aos="fade-down"><span class="highlight">Syed Wasay</span></h1>
-      <p data-aos="fade-up" data-aos-delay="100">Expert in Shopify & WordPress Web Development | eCommerce Manager</p>
-      <div data-aos="fade-up" data-aos-delay="200">
-        <a href="#contact" class="btn btn-primary">Start a Project</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section id="about" class="section">
-      <div class="about-card" data-aos="fade-up">
-        <h2 class="section-title" style="text-align: left; margin-bottom: 2rem;">Problem Solver & Web Expert</h2>
-        <div class="about-text">
-          <p>With <strong>over 2 years of experience</strong> in web development, I have established myself as a technical expert specializing in the <strong>Shopify and WordPress</strong> ecosystems, as well as high-performance custom HTML/CSS static websites.</p>
-          <br>
-          <p>My core strength lies in being a <strong>technical problem solver</strong>. I don't just build sites; I make a merchant's life easier. I am highly capable of <strong>editing Shopify themes via code</strong> to add advanced functionalities that are either missing or too expensive to maintain through monthly app subscriptions. By injecting custom Liquid and Javascript, I help business owners reduce overhead costs and improve site performance.</p>
-          <br>
-          <p>From listing <strong>countless products</strong> with precision to managing complex end-to-end eCommerce workflows, I ensure that every digital storefront is optimized for conversions and seamless user experience.</p>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo" style="font-weight: 800; font-size: 1.2rem;">SYED WASAY<span style="color: var(--primary);">.</span></div>
+            <div class="nav-links">
+                <a href="#about">Experience</a>
+                <a href="#portfolio">Works</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-      </div>
-    </section>
+    </nav>
 
-    <section id="skills" class="section">
-      <h2 class="section-title">Technical Expertise</h2>
-      <div class="grid skills-grid">
-        <div class="skill-item" data-aos="fade-up"><i class="fas fa-code"></i><span>Shopify Liquid & Theme Customization</span></div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><i class="fab fa-wordpress"></i><span>WordPress Development & Optimization</span></div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-laptop-code"></i><span>Custom HTML, CSS & JS Static Sites</span></div>
-        <div class="skill-item" data-aos="fade-up"><i class="fas fa-database"></i><span>Precision Product Listing & Management</span></div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-rocket"></i><span>Performance & Page Speed Optimization</span></div>
-        <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-shield-alt"></i><span>App-Free Custom Functionality Injection</span></div>
-      </div>
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <h1 data-aos="fade-up">SOLVING<br><span class="highlight">PROBLEMS</span></h1>
+        <p data-aos="fade-up" data-aos-delay="200">I help merchants scale by building high-performance Shopify and WordPress experiences while eliminating the need for costly apps.</p>
+        <a href="#portfolio" class="btn-glow" data-aos="fade-up" data-aos-delay="400">View Infrastructure</a>
+    </header>
+
+    <section id="about" class="section">
+        <div class="about-bento">
+            <div class="bento-card" data-aos="fade-right">
+                <h2 style="margin-bottom: 2rem;">The Merchant Mindset</h2>
+                <p style="color: var(--text-dim); font-size: 1.1rem;">
+                    With <strong>over 2 years of experience</strong>, I specialize in the architecture of digital commerce. I don’t just deploy themes; I solve business logic problems. I edit Shopify themes via code to inject custom functionalities that would normally require expensive monthly app fees. 
+                    <br><br>
+                    My workflow is built around making merchants' lives easier and their stores faster. From custom HTML/CSS static sites to end-to-end WordPress ecosystems, I ensure every line of code serves a purpose.
+                </p>
+            </div>
+            <div class="bento-card" style="display: flex; flex-direction: column; justify-content: center;" data-aos="fade-left">
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary);">20+</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Premium Deployments</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary);">Countless</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase;">Products Managed</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="portfolio" class="section">
-      <h2 class="section-title">Case Studies & Projects</h2>
-      <div class="grid portfolio-grid">
-        <a href="https://fatimamumtaz.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Fatima Mumtaz</div>
-          <span class="tag">WordPress Expert</span>
-        </a>
-        <a href="http://duratonsafety.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Duraton Safety</div>
-          <span class="tag">Custom HTML/CSS/JS</span>
-        </a>
-        <a href="https://surimoon.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Suri Moon</div>
-          <span class="tag">Shopify Theme Edit</span>
-        </a>
-        <a href="https://brokenhornleather.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Brokenhorn Leather</div>
-          <span class="tag">Shopify Development</span>
-        </a>
-        <a href="https://kenneyzgroup.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Kenneyz Group</div>
-          <span class="tag">WordPress Business</span>
-        </a>
-        <a href="https://magicremote.co.uk/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Magic Remote UK</div>
-          <span class="tag">Shopify Store</span>
-        </a>
-        <a href="https://caliberwardrobe.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Caliber Wardrobe</div>
-          <span class="tag">Shopify eCommerce</span>
-        </a>
-        <a href="https://mirzaadsexpert.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Mirza Ads Expert</div>
-          <span class="tag">WordPress Development</span>
-        </a>
-        <a href="https://agyclothing.com/" target="_blank" class="portfolio-item" data-aos="zoom-in">
-          <div class="portfolio-item-content">Agy Clothing</div>
-          <span class="tag">Shopify Brand</span>
-        </a>
+        <div class="section-header">
+            <h2>Deployed Ecosystems</h2>
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Infrastructure</button>
+                <button class="filter-btn" onclick="filterProjects('shopify')">Shopify</button>
+                <button class="filter-btn" onclick="filterProjects('wordpress')">WordPress</button>
+                <button class="filter-btn" onclick="filterProjects('custom')">Custom Code</button>
+            </div>
         </div>
-      <p style="text-align: center; margin-top: 3rem; color: var(--text-muted);">+ Over 20 more premium deployments</p>
+
+        <div class="project-grid" id="project-grid">
+            </div>
     </section>
 
     <section id="contact" class="section">
-      <div class="contact-card" data-aos="flip-up">
-        <h2 class="section-title">Let's Simplify Your Business</h2>
-        <p>Whether you need a custom Shopify feature or a high-converting WordPress site, I am ready to help.</p>
-        <div>
-          <a href="mailto:wasayazeem2167@gmail.com" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Email Me</a>
-          <a href="tel:+923428351577" class="btn btn-outline" style="color: white; border-color: white; margin-top: 1rem;"><i class="fas fa-phone"></i> Call Direct</a>
+        <div class="contact-box" data-aos="zoom-in">
+            <h2 style="margin-bottom: 1.5rem;">Ready to upgrade your store?</h2>
+            <p style="margin-bottom: 3rem;">I am available for technical collaborations and long-term project management.</p>
+            <a href="mailto:wasayazeem2167@gmail.com" class="btn-glow"><i class="fas fa-envelope"></i> Message Desk</a>
+            <a href="tel:+923428351577" class="btn-glow" style="background: transparent; border: 1px solid var(--border);"><i class="fas fa-phone"></i> Direct Line</a>
         </div>
-      </div>
     </section>
-  </main>
 
-  <a href="https://wa.me/923428351577" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/923428351577" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Syed Wasay. Strategic Web Solutions.</p>
-  </footer>
+    <footer style="padding: 4rem 2rem; text-align: center; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border);">
+        <p>&copy; <span id="year"></span> SYED WASAY. ALL RIGHTS RESERVED.</p>
+    </footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Smooth scroll with offset for nav
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        const navHeight = document.querySelector('nav').offsetHeight;
-        window.scrollTo({
-          top: targetElement.offsetTop - navHeight,
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const projects = [
+            { name: "Aftab Impex", url: "https://aftabimpexaus.com/", type: "shopify", special: "Double Layer Secured App Build" },
+            { name: "Suri Moon", url: "https://surimoon.com/", type: "shopify" },
+            { name: "Agy Clothing", url: "https://agyclothing.com/", type: "shopify" },
+            { name: "Print Bakery", url: "https://printbakeryco.com/", type: "shopify" },
+            { name: "Brokenhorn Leather", url: "https://brokenhornleather.com/", type: "shopify" },
+            { name: "Milano Bags", url: "https://milano-bags.com/", type: "shopify" },
+            { name: "Renna Fashion", url: "https://rennafashion.com/", type: "shopify" },
+            { name: "Elegance Step", url: "https://elegancestep.pk/", type: "shopify" },
+            { name: "Caliber Wardrobe", url: "https://caliberwardrobe.com/", type: "shopify" },
+            { name: "Magic Remote UK", url: "https://magicremote.co.uk/", type: "shopify" },
+            { name: "Duraton Safety", url: "http://duratonsafety.com/", type: "custom", special: "Custom HTML/CSS/JS" },
+            { name: "Fatima Mumtaz", url: "https://fatimamumtaz.com/", type: "wordpress" },
+            { name: "Kaldi Legacy", url: "https://kaldilegacy.com/", type: "wordpress" },
+            { name: "Ashraf Sourcing", url: "http://ashrafsourcing.com/", type: "wordpress" },
+            { name: "Crown Global Trading", url: "https://crownglobaltradingpk.com/", type: "wordpress" },
+            { name: "Progress Mountain", url: "https://progressmountainpt.com/", type: "wordpress" },
+            { name: "Khair Ul Wara", url: "https://khairulwara.com/", type: "wordpress" },
+            { name: "FDM Commodities", url: "http://www.fdmcommodities.com", type: "wordpress" },
+            { name: "Magic Luxury Services", url: "https://www.magicluxuryservice.com/", type: "wordpress" },
+            { name: "Kenneyz Media City", url: "https://kenneyzmediacity.com", type: "wordpress" },
+            { name: "Kenneyz Productions", url: "https://kenneyzproductions.com/", type: "wordpress" },
+            { name: "Kenneyz Music", url: "https://music.kenneyzproductions.com/", type: "wordpress" },
+            { name: "Kenneyz Group", url: "https://kenneyzgroup.com/", type: "wordpress" },
+            { name: "Amanda Marino Speaks", url: "https://amandamarinospeaks.com/", type: "wordpress" },
+            { name: "Parish Footwear", url: "https://www.parishfootwear.pk/", type: "wordpress" },
+            { name: "CosmosBro", url: "https://www.cosmosbro.com/", type: "wordpress" },
+            { name: "Muddy Figs", url: "https://muddyfigs.com/", type: "wordpress" },
+            { name: "ILSPAK", url: "https://ilspak.com/", type: "wordpress" },
+            { name: "Alfredo Martini", url: "https://alfredomartini.com/", type: "wordpress" },
+            { name: "Mirza Ads Expert", url: "https://mirzaadsexpert.com/", type: "wordpress" },
+            { name: "Medical HRF", url: "https://medicalhrf.com/", type: "wordpress" },
+            { name: "Beauty Vente", url: "https://beautyvente.com/", type: "shopify" }
+        ];
+
+        function renderProjects(filter = 'all') {
+            const grid = document.getElementById('project-grid');
+            grid.innerHTML = '';
+            
+            projects.forEach(p => {
+                if(filter === 'all' || p.type === filter) {
+                    const card = document.createElement('a');
+                    card.href = p.url;
+                    card.target = "_blank";
+                    card.className = "project-card";
+                    card.setAttribute('data-aos', 'fade-up');
+                    
+                    card.innerHTML = `
+                        <i class="fas fa-arrow-right link-icon"></i>
+                        <span class="type-tag">${p.type}</span>
+                        <h3>${p.name}</h3>
+                        ${p.special ? `<span class="special-tag">${p.special}</span>` : ''}
+                    `;
+                    grid.appendChild(card);
+                }
+            });
+        }
+
+        function filterProjects(type) {
+            renderProjects(type);
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText.toLowerCase().includes(type)) btn.classList.add('active');
+                if(type === 'all' && btn.innerText.includes('All')) btn.classList.add('active');
+            });
+        }
+
+        renderProjects();
+    </script>
 </body>
 </html>
