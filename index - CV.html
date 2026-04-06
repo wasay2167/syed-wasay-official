@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Syed Abdul Wasay Azeem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --primary: #3b82f6;
+            --text-dim: #94a3b8;
+            --text-bright: #f8fafc;
+            --border: #1e293b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg); 
+            color: var(--text-bright); 
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #0d0d0d;
+            border: 1px solid var(--border);
+            padding: 60px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .contact-info span i { color: var(--primary); margin-right: 8px; }
+
+        section { margin-bottom: 40px; }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 20px;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-bright);
+        }
+
+        .date {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .description {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        ul { list-style: none; }
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-dim);
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--border);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* PRINT STYLES - Automatically triggers on Ctrl+P */
+        @media print {
+            body { background: white; padding: 0; color: black; }
+            .cv-container { 
+                border: none; 
+                background: white; 
+                padding: 0; 
+                max-width: 100%;
+            }
+            .contact-info, .description, ul li, .skill-tag { color: #333 !important; }
+            h1, .job-title { color: black !important; }
+            h2 { color: #2563eb !important; }
+            h2::after { background: #eee; }
+            .skill-tag { border: 1px solid #eee; }
+            .no-print { display: none; }
+        }
+
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="download-btn no-print" onclick="window.print()">
+        <i class="fas fa-print"></i> Print CV
+    </button>
+
+    <div class="cv-container">
+        <header>
+            <h1>Syed Abdul Wasay Azeem</h1>
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> wasayazeem2167@gmail.com</span>
+                <span><i class="fas fa-phone"></i> +92 342 8351577</span>
+                <span><i class="fas fa-globe"></i> Portfolio: wasay-dev.pro</span>
+                <span><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Professional Profile</h2>
+            <p class="description">
+                Results-driven **Web Development Expert** with over 2 years of experience specializing in high-performance eCommerce ecosystems. Proven track record of solving complex technical problems for merchants by building custom Shopify and WordPress solutions that eliminate the need for costly third-party apps.
+            </p>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <span class="job-title">Senior Web Developer & eCommerce Consultant</span>
+                <span class="date">2024 — Present</span>
+                <p class="description">
+                    Managing a diverse portfolio of 30+ international and local clients, delivering high-performance web infrastructure.
+                </p>
+                <ul>
+                    <li>**Custom Shopify Architect:** Specialized in Liquid code injection to create bespoke features (Ring Sizers, Secure Retail Apps, Custom Bars) without recurring app costs.</li>
+                    <li>**WordPress Specialist:** Engineered complex business sites using Elementor and custom PHP/CSS for brands like Kenneyz Group and Fatima Mumtaz.</li>
+                    <li>**Full-Stack Static Builds:** Developing lightweight, ultra-fast custom HTML/CSS/JS websites for industrial clients.</li>
+                    <li>**Product Ecosystem Management:** Orchestrated the listing and optimization of thousands of products across various eCommerce platforms.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Shopify Liquid & API Integration</div>
+                <div class="skill-tag">WordPress Theme & Plugin Dev</div>
+                <div class="skill-tag">Custom HTML5 / CSS3 / JavaScript</div>
+                <div class="skill-tag">eCommerce Problem Solving</div>
+                <div class="skill-tag">UI/UX Minimalist Design</div>
+                <div class="skill-tag">App-Free Functionality Logic</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="experience-item">
+                <span class="job-title">DAE (3-Year Diploma) in Computer Information Technology</span>
+                <span class="date">CIT Professional Certification</span>
+                <p class="description">Focused on software logic, database management, and network infrastructure.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Projects</h2>
+            <p class="description">
+                Successfully deployed platforms for **Aftab Impex** (Double Layer Secured Retail App), **Suri Moon**, **Brokenhorn Leather**, and **Kenneyz Media City**. Full interactive project list available on my portfolio.
+            </p>
+        </section>
+    </div>
+
+</body>
+</html>
