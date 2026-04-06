@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,66 +7,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+        /* ── THEME TOKENS ── */
+        [data-theme="dark"] {
             --bg: #050505;
+            --surface: #0d0d0d;
             --primary: #3b82f6;
             --text-dim: #94a3b8;
             --text-bright: #f8fafc;
             --border: #1e293b;
+            --skill-bg: rgba(59,130,246,0.05);
+            --toggle-bg: #1e293b;
+            --toggle-icon: #f8fafc;
+        }
+        [data-theme="light"] {
+            --bg: #f0f4f8;
+            --surface: #ffffff;
+            --primary: #2563eb;
+            --text-dim: #475569;
+            --text-bright: #0f172a;
+            --border: #cbd5e1;
+            --skill-bg: rgba(37,99,235,0.05);
+            --toggle-bg: #e2e8f0;
+            --toggle-icon: #0f172a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background: var(--bg); 
-            color: var(--text-bright); 
+
+        body {
+            background: var(--bg);
+            color: var(--text-bright);
             font-family: 'Inter', sans-serif;
             line-height: 1.5;
             padding: 40px 20px;
+            transition: background 0.3s, color 0.3s;
         }
 
         .cv-container {
             max-width: 850px;
             margin: 0 auto;
-            background: #0d0d0d;
+            background: var(--surface);
             border: 1px solid var(--border);
-            padding: 60px;
+            padding: 50px 60px;
             border-radius: 20px;
-            position: relative;
+            transition: background 0.3s, border-color 0.3s;
         }
 
         header {
             border-bottom: 1px solid var(--border);
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            padding-bottom: 24px;
+            margin-bottom: 30px;
         }
 
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             letter-spacing: -1px;
             margin-bottom: 10px;
+            color: var(--text-bright);
         }
 
         .contact-info {
             display: flex;
-            gap: 20px;
+            gap: 18px;
             flex-wrap: wrap;
             color: var(--text-dim);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
-        .contact-info span i { color: var(--primary); margin-right: 8px; }
+        .contact-info span i { color: var(--primary); margin-right: 6px; }
 
-        section { margin-bottom: 40px; }
+        section { margin-bottom: 28px; }
 
         h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
         }
@@ -76,34 +94,35 @@
             flex: 1;
             height: 1px;
             background: var(--border);
-            margin-left: 20px;
+            margin-left: 16px;
         }
 
         .job-title {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-bright);
         }
 
         .date {
             color: var(--text-dim);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
+            font-size: 0.82rem;
+            margin-bottom: 8px;
             display: block;
         }
 
         .description {
             color: var(--text-dim);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 0.92rem;
+            margin-bottom: 14px;
         }
 
         ul { list-style: none; }
         ul li {
             position: relative;
             padding-left: 20px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-dim);
+            font-size: 0.92rem;
         }
 
         ul li::before {
@@ -116,55 +135,143 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 10px;
         }
 
         .skill-tag {
-            background: rgba(59, 130, 246, 0.05);
+            background: var(--skill-bg);
             border: 1px solid var(--border);
-            padding: 10px 15px;
+            padding: 8px 14px;
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
+            color: var(--text-dim);
         }
 
-        /* PRINT STYLES - Automatically triggers on Ctrl+P */
-        @media print {
-            body { background: white; padding: 0; color: black; }
-            .cv-container { 
-                border: none; 
-                background: white; 
-                padding: 0; 
-                max-width: 100%;
-            }
-            .contact-info, .description, ul li, .skill-tag { color: #333 !important; }
-            h1, .job-title { color: black !important; }
-            h2 { color: #2563eb !important; }
-            h2::after { background: #eee; }
-            .skill-tag { border: 1px solid #eee; }
-            .no-print { display: none; }
-        }
-
-        .download-btn {
+        /* ── FAB STACK ── */
+        .fab-stack {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--primary);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .fab-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
             border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
+        .fab-btn:hover { transform: scale(1.08); }
+
+        .theme-toggle {
+            background: var(--toggle-bg);
+            color: var(--toggle-icon);
+        }
+
+        .print-btn {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(59,130,246,0.35);
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            @page {
+                size: A4;
+                margin: 12mm 14mm;
+            }
+
+            html, body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                color: black !important;
+                font-size: 11px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .fab-stack { display: none !important; }
+
+            .cv-container {
+                border: none !important;
+                background: white !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                /* Force single page */
+                page-break-inside: avoid;
+            }
+
+            /* Tighten spacing for single page */
+            header {
+                padding-bottom: 12px !important;
+                margin-bottom: 16px !important;
+                border-color: #ccc !important;
+            }
+
+            section { margin-bottom: 14px !important; }
+
+            h1 {
+                font-size: 1.6rem !important;
+                color: black !important;
+            }
+
+            h2 {
+                font-size: 0.75rem !important;
+                color: #2563eb !important;
+                margin-bottom: 8px !important;
+            }
+
+            h2::after { background: #ddd !important; }
+
+            .job-title { font-size: 0.88rem !important; color: black !important; }
+
+            .description, ul li, .contact-info span {
+                color: #444 !important;
+                font-size: 0.82rem !important;
+            }
+
+            .description { margin-bottom: 8px !important; }
+            ul li { margin-bottom: 4px !important; }
+
+            .skill-tag {
+                border: 1px solid #ddd !important;
+                color: #333 !important;
+                font-size: 0.8rem !important;
+                padding: 5px 10px !important;
+                background: #f8f8f8 !important;
+            }
+
+            .skills-grid { gap: 6px !important; }
         }
     </style>
 </head>
 <body>
 
-    <button class="download-btn no-print" onclick="window.print()">
-        <i class="fas fa-print"></i> Print CV
-    </button>
+    <!-- FAB Stack: theme toggle ON TOP, print below -->
+    <div class="fab-stack no-print">
+        <button class="fab-btn theme-toggle" onclick="toggleTheme()" title="Toggle light/dark">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="fab-btn print-btn" onclick="window.print()" title="Print CV">
+            <i class="fas fa-print"></i>
+        </button>
+    </div>
 
     <div class="cv-container">
         <header>
@@ -172,8 +279,6 @@
             <div class="contact-info">
                 <span><i class="fas fa-envelope"></i> wasayazeem2167@gmail.com</span>
                 <span><i class="fas fa-phone"></i> +92 342 8351577</span>
-                <!--
-                <span><i class="fas fa-globe"></i> Portfolio: wasay-dev.pro</span> -->
                 <span><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</span>
             </div>
         </header>
@@ -181,7 +286,7 @@
         <section>
             <h2>Professional Profile</h2>
             <p class="description">
-                Results-driven **Web Development Expert** with over 2 years of experience specializing in high-performance eCommerce ecosystems. Proven track record of solving complex technical problems for merchants by building custom Shopify and WordPress solutions that eliminate the need for costly third-party apps.
+                Results-driven Web Development Expert with over 2 years of experience specializing in high-performance eCommerce ecosystems. Proven track record of solving complex technical problems for merchants by building custom Shopify and WordPress solutions that eliminate the need for costly third-party apps.
             </p>
         </section>
 
@@ -190,14 +295,12 @@
             <div class="experience-item">
                 <span class="job-title">Senior Web Developer & eCommerce Consultant</span>
                 <span class="date">2024 — Present</span>
-                <p class="description">
-                    Managing a diverse portfolio of 30+ international and local clients, delivering high-performance web infrastructure.
-                </p>
+                <p class="description">Managing a diverse portfolio of 30+ international and local clients, delivering high-performance web infrastructure.</p>
                 <ul>
-                    <li>**Custom Shopify Architect:** Specialized in Liquid code injection to create bespoke features (Ring Sizers, Secure Retail Apps, Custom Bars) without recurring app costs.</li>
-                    <li>**WordPress Specialist:** Engineered complex business sites using Elementor and custom Codes for brands like Kenneyz Group and Fatima Mumtaz.</li>
-                    <li>**Full-Stack Static Builds:** Developing lightweight, ultra-fast custom HTML/CSS/JS websites for industrial clients.</li>
-                    <li>**Product Ecosystem Management:** Orchestrated the listing and optimization of thousands of products across various eCommerce platforms.</li>
+                    <li>Custom Shopify Architect: Specialized in Liquid code injection to create bespoke features (Ring Sizers, Secure Retail Apps, Custom Bars) without recurring app costs.</li>
+                    <li>WordPress Specialist: Engineered complex business sites using Elementor and custom code for brands like Kenneyz Group and Fatima Mumtaz.</li>
+                    <li>Full-Stack Static Builds: Developing lightweight, ultra-fast custom HTML/CSS/JS websites for industrial clients.</li>
+                    <li>Product Ecosystem Management: Orchestrated the listing and optimization of thousands of products across various eCommerce platforms.</li>
                 </ul>
             </div>
         </section>
@@ -206,11 +309,11 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-tag">Shopify Expert</div>
-                <div class="skill-tag">WordPress Expert </div>
+                <div class="skill-tag">WordPress Expert</div>
                 <div class="skill-tag">Custom HTML5 / CSS3 / JavaScript</div>
                 <div class="skill-tag">eCommerce Problem Solving</div>
                 <div class="skill-tag">UI/UX Minimalist Design</div>
-                <div class="skill-tag">App-Free Functionality Logic in shopify</div>
+                <div class="skill-tag">App-Free Functionality Logic in Shopify</div>
             </div>
         </section>
 
@@ -219,17 +322,30 @@
             <div class="experience-item">
                 <span class="job-title">DAE (3-Year Diploma) in Computer Information Technology</span>
                 <span class="date">CIT Professional Certification</span>
-                <p class="description">Focused on Web dev , E-commerce</p>
+                <p class="description">Focused on Web Development & eCommerce</p>
             </div>
         </section>
 
         <section>
             <h2>Key Projects</h2>
             <p class="description">
-                Successfully deployed platforms for **Aftab Impex** (Double Layer Secured Retail App), **Suri Jewelery**, **Brokenhorn Leather**, and **Kenneyz Media City**. Full interactive project list available on my portfolio.
+                Successfully deployed platforms for Aftab Impex (Double Layer Secured Retail App), Suri Jewelery, Brokenhorn Leather, and Kenneyz Media City. Full interactive project list available on my portfolio.
             </p>
         </section>
     </div>
 
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                icon.className = 'fas fa-sun';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-moon';
+            }
+        }
+    </script>
 </body>
 </html>
