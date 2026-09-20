@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="description" content="Syed Wasay — Shopify, WordPress and custom web developer. Web creation, management, modification and revamps since 2024.">
+  <title>Syed Wasay — Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="progress"></div>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Syed Wasay home">
+      <span class="brand-mark">SW</span>
+      <span>SYED <b>WASAY</b></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <nav id="mainNav">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Start a project <i class="fa-solid fa-arrow-up-right"></i></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span> Available for selected projects</div>
+        <h1>Websites that feel <span>credible</span> before the first word is read.</h1>
+        <p class="hero-text">I build and improve Shopify, WordPress and custom websites with a focus on clarity, performance, conversion and long-term maintainability.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#work">Explore my work <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="btn btn-ghost" href="https://wa.me/923428351577" target="_blank" rel="noopener">WhatsApp me <i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="trust-row">
+          <span><i class="fa-solid fa-check"></i> Working since 2024</span>
+          <span><i class="fa-solid fa-layer-group"></i> 40+ projects</span>
+          <span><i class="fa-solid fa-code"></i> Shopify · WP · Custom</span>
+        </div>
+      </div>
+
+      <div class="hero-object-wrap reveal">
+        <div class="orbital orbital-a"></div>
+        <div class="orbital orbital-b"></div>
+        <div class="hero-object" id="heroObject">
+          <div class="object-core">
+            <span class="core-label">WEB<br>CRAFT</span>
+            <div class="core-line"></div>
+            <strong>01</strong>
+          </div>
+          <div class="object-ring ring-1"></div>
+          <div class="object-ring ring-2"></div>
+          <div class="object-ring ring-3"></div>
+        </div>
+        <div class="floating-card card-a"><small>BUILD</small><b>SHOPIFY</b><span>↗</span></div>
+        <div class="floating-card card-b"><small>IMPROVE</small><b>WORDPRESS</b><span>↗</span></div>
+        <div class="floating-card card-c"><small>CREATE</small><b>CUSTOM WEB</b><span>↗</span></div>
+      </div>
+    </section>
+
+    <section class="marquee-strip" aria-label="Skills">
+      <div class="marquee-track">
+        <span>SHOPIFY</span><i>✦</i><span>WORDPRESS</span><i>✦</i><span>HTML / CSS / JS</span><i>✦</i><span>ECOMMERCE</span><i>✦</i><span>WEB MANAGEMENT</span><i>✦</i>
+        <span>SHOPIFY</span><i>✦</i><span>WORDPRESS</span><i>✦</i><span>HTML / CSS / JS</span><i>✦</i><span>ECOMMERCE</span><i>✦</i><span>WEB MANAGEMENT</span><i>✦</i>
+      </div>
+    </section>
+
+    <section id="work" class="section-shell section-pad">
+      <div class="section-heading reveal">
+        <div><span class="kicker">Selected work</span><h2>Proof over promises.</h2></div>
+        <p>A growing collection of Shopify, WordPress and custom web projects. Filter the work by platform.</p>
+      </div>
+      <div class="filters reveal" role="tablist">
+        <button class="active" data-filter="all">All <b>40+</b></button>
+        <button data-filter="shopify">Shopify</button>
+        <button data-filter="wordpress">WordPress</button>
+        <button data-filter="custom">Custom Web</button>
+      </div>
+      <div id="portfolioGrid" class="portfolio-grid"></div>
+      <button id="loadMore" class="load-more">Load more projects <i class="fa-solid fa-plus"></i></button>
+    </section>
+
+    <section id="services" class="section-shell section-pad services-section">
+      <div class="section-heading reveal">
+        <div><span class="kicker">What I do</span><h2>Simple technology. Serious execution.</h2></div>
+        <p>No unnecessary complexity. The goal is a website that is easy to use, easy to manage and built around the business.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal"><span class="service-number">01</span><i class="fa-brands fa-shopify"></i><h3>Shopify</h3><p>Store creation, theme customization, product setup, sections, Liquid changes, conversion-focused improvements and ongoing management.</p><a href="#contact">Discuss Shopify <span>↗</span></a></article>
+        <article class="service-card reveal"><span class="service-number">02</span><i class="fa-brands fa-wordpress"></i><h3>WordPress</h3><p>Business sites, ecommerce, page builds, content updates, performance improvements, fixes and long-term website management.</p><a href="#contact">Discuss WordPress <span>↗</span></a></article>
+        <article class="service-card reveal"><span class="service-number">03</span><i class="fa-solid fa-code"></i><h3>Custom Web</h3><p>Responsive HTML, CSS and JavaScript websites with clean structure, smooth motion, interactive components and no unnecessary dependencies.</p><a href="#contact">Build something custom <span>↗</span></a></article>
+        <article class="service-card reveal"><span class="service-number">04</span><i class="fa-solid fa-arrows-rotate"></i><h3>Revamp & Management</h3><p>Modernize an existing website, fix friction, update content, improve sections, maintain the store and keep the experience consistent.</p><a href="#contact">Improve a website <span>↗</span></a></article>
+      </div>
+    </section>
+
+    <section id="process" class="section-shell section-pad process-section">
+      <div class="process-visual reveal">
+        <div class="process-cube" id="processCube"><span>PLAN</span><span>BUILD</span><span>REFINE</span><span>LAUNCH</span></div>
+      </div>
+      <div class="process-copy">
+        <span class="kicker">How I work</span>
+        <h2>Less confusion. More control.</h2>
+        <div class="steps">
+          <div class="step reveal"><b>01</b><div><h3>Understand</h3><p>I clarify the goal, audience, content and technical constraints before touching the build.</p></div></div>
+          <div class="step reveal"><b>02</b><div><h3>Build</h3><p>The site is structured around hierarchy and usability, not decoration for decoration's sake.</p></div></div>
+          <div class="step reveal"><b>03</b><div><h3>Refine</h3><p>Responsive behavior, motion, spacing, forms and important interactions are tested and polished.</p></div></div>
+          <div class="step reveal"><b>04</b><div><h3>Handover</h3><p>You get a maintainable website and clear next steps instead of a black box.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell section-pad about-section">
+      <div class="about-card reveal">
+        <div class="about-badge"><span>SW</span><small>WEB<br>DEVELOPER</small></div>
+        <div><span class="kicker">A little about me</span><h2>Technical enough to solve the problem. Practical enough to keep it simple.</h2><p>I'm Syed Wasay, a web developer working in this field since 2024. My work spans Shopify, WordPress and custom HTML/CSS/JS websites, from first build to ongoing modification and management.</p><p>I care about the details clients actually feel: clear navigation, trustworthy presentation, responsive layouts, useful interactions and solutions that don't create unnecessary future costs.</p></div>
+      </div>
+      <div class="stats-grid reveal">
+        <div><strong>2024</strong><span>Started professionally</span></div>
+        <div><strong>40+</strong><span>Local & international projects</span></div>
+        <div><strong>3</strong><span>Core web platforms</span></div>
+        <div><strong>∞</strong><span>Ideas to improve</span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-shell section-pad contact-section">
+      <div class="contact-intro reveal"><span class="kicker">Let's work together</span><h2>Have a website that needs to be built, fixed or made better?</h2><p>Tell me what you're working on. I'll get back to you with the next practical step.</p>
+        <div class="contact-links">
+          <a href="tel:+923428351577"><i class="fa-solid fa-phone"></i><span>+92 342 8351577</span></a>
+          <a href="https://wa.me/923428351577" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+          <a href="mailto:wasayweb@gmail.com"><i class="fa-regular fa-envelope"></i><span>wasayweb@gmail.com</span></a>
+          <a href="https://www.instagram.com/wasay.webdev/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i><span>@wasay.webdev</span></a>
+        </div>
+      </div>
+      <form class="contact-form reveal" action="https://formsubmit.co/wasayweb@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New portfolio enquiry — Syed Wasay">
+        <input type="hidden" name="_next" value="">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honeypot">
+        <label>Name<input required name="name" autocomplete="name" placeholder="Your name"></label>
+        <label>Email<input required type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+        <label>What do you need?<select name="service"><option>Shopify</option><option>WordPress</option><option>Custom website</option><option>Revamp / modification</option><option>Management</option><option>Something else</option></select></label>
+        <label>Project details<textarea required name="message" rows="5" placeholder="Tell me about the website, goal and timeline..."></textarea></label>
+        <button class="btn btn-primary" type="submit">Send enquiry <i class="fa-solid fa-arrow-right"></i></button>
+        <p class="form-note"><i class="fa-solid fa-lock"></i> Your message is sent securely through FormSubmit. No account is required.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <div><a class="brand" href="#top"><span class="brand-mark">SW</span><span>SYED <b>WASAY</b></span></a><p>Shopify · WordPress · Custom Web</p></div>
+    <div class="footer-right"><a href="#work">Work</a><a href="#services">Services</a><a href="#contact">Contact</a><span>© <span id="year"></span> Syed Wasay</span></div>
+  </footer>
+
+  <script>
+  window.WASAY_PROJECTS = [
+
+    // ==========================================
+    // SHOPIFY PROJECTS
+    // ==========================================
+
+    [
+      "Ellegra Diamond",
+      "Shopify",
+      "shopify",
+      "assets/img/website/ellegra.png",
+      ""
+    ],
+
+    [
+      "Secret Lingeries",
+      "Shopify",
+      "shopify",
+      "assets/img/website/secret.png",
+      ""
+    ],
+
+    [
+      "TurkGlow",
+      "Shopify",
+      "shopify",
+      "assets/img/website/turk-glow.png",
+      ""
+    ],
+
+    [
+      "Nivera Jewelry",
+      "Shopify",
+      "shopify",
+      "assets/img/website/nivera.png",
+      ""
+    ],
+
+    [
+      "AGY Clothing",
+      "Shopify",
+      "shopify",
+      "assets/img/website/agy.png",
+      ""
+    ],
+
+    [
+      "Seji Art",
+      "Shopify",
+      "shopify",
+      "assets/img/website/seji.png",
+      ""
+    ],
+
+    [
+      "Aftab Impex",
+      "Shopify App / E-commerce",
+      "shopify",
+      "assets/img/website/aftab.png",
+      ""
+    ],
+
+    [
+      "SURI Jewelry",
+      "Shopify",
+      "shopify",
+      "assets/img/website/suri.png",
+      ""
+    ],
+
+    [
+      "Brokenhorn Leather",
+      "Shopify",
+      "shopify",
+      "assets/img/website/broken.png",
+      ""
+    ],
+
+    [
+      "Renna Fashion",
+      "Shopify",
+      "shopify",
+      "assets/img/website/renna.jpg",
+      ""
+    ],
+
+    [
+      "Elegance Step",
+      "Shopify",
+      "shopify",
+      "assets/img/website/elegance.png",
+      ""
+    ],
+
+    [
+      "Magic Remote UK",
+      "Shopify",
+      "shopify",
+      "assets/img/website/mr.jpg",
+      ""
+    ],
+
+    [
+      "Caliber Wardrobe",
+      "Shopify",
+      "shopify",
+      "assets/img/website/cw.jpg",
+      ""
+    ],
+
+    [
+      "Beauty Vente",
+      "Shopify + WordPress",
+      "shopify",
+      "assets/img/website/bv.jpg",
+      ""
+    ],
+
+    [
+      "HNA Apparel",
+      "Shopify",
+      "shopify",
+      "assets/img/website/hna.jpg",
+      ""
+    ],
+
+
+    // ==========================================
+    // WORDPRESS PROJECTS
+    // ==========================================
+
+    [
+      "Flawless Diary",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/flawless.png",
+      ""
+    ],
+
+    [
+      "AION Smart Life",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/aion.png",
+      ""
+    ],
+
+    [
+      "Kaldi Legacy",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/kaldi.png",
+      ""
+    ],
+
+    [
+      "Ashraf Sourcing",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/ashraf.png",
+      ""
+    ],
+
+    [
+      "Crown Global Trading",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/crown.png",
+      ""
+    ],
+
+    [
+      "Progress Mountain",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/progresss.png",
+      ""
+    ],
+
+    [
+      "Khair Ul Wara",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/khair.png",
+      ""
+    ],
+
+    [
+      "Fatima Mumtaz",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/fatima.png",
+      ""
+    ],
+
+    [
+      "FDM Commodities",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/fdm.png",
+      ""
+    ],
+
+    [
+      "Magic Luxury Service",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/mls.png",
+      ""
+    ],
+
+    [
+      "Kenneyz Media City",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/media-city.png",
+      ""
+    ],
+
+    [
+      "Kenneyz Productions",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/product.png",
+      ""
+    ],
+
+    [
+      "Kenneyz Music",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/misic.png",
+      ""
+    ],
+
+    [
+      "Amanda Marino Speaks",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/amanda.png",
+      ""
+    ],
+
+    [
+      "Parish Footwear",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/pfw.jpg",
+      ""
+    ],
+
+    [
+      "CosmosBro",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/cosmos.png",
+      ""
+    ],
+
+    [
+      "Muddy Figs",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/muddy.jpg",
+      ""
+    ],
+
+    [
+      "ILSPAK",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/ils.jpg",
+      ""
+    ],
+
+    [
+      "Alfredo Martini",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/alfredo.png",
+      ""
+    ],
+
+    [
+      "Mirza Ads Expert",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/mr.jpg",
+      ""
+    ],
+
+    [
+      "Medical HRF",
+      "WordPress",
+      "wordpress",
+      "assets/img/website/mhrf.png",
+      ""
+    ],
+
+    [
+      "Magic Luxury Services",
+      "WordPress",
+      "custom",
+      "assets/img/website/mlss.png",
+      ""
+    ],
+
+
+    // ==========================================
+    // CUSTOM HTML / CSS / JS
+    // ==========================================
+
+    [
+      "Scotsman Travel",
+      "Custom HTML/CSS/JS",
+      "custom",
+      "assets/img/website/scot.png",
+      ""
+    ],
+
+    [
+      "Duraton Safety",
+      "Custom HTML/CSS/JS",
+      "custom",
+      "assets/img/website/duraton.png",
+      ""
+    ],
+
+
+    // ==========================================
+    // END OF PROJECTS
+    // ==========================================
+
+  ];
+</script>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
