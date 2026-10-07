@@ -1944,9 +1944,30 @@
         font-size: 25px;
       }
 
+.projects {
+      margin-top: 75px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
       .projects {
-        display: block;
+        display: flex;
+        flex-direction: column;
       }
+
+      .project,
+      .project:nth-child(1),
+      .project:nth-child(2),
+      .project:nth-child(3),
+      .project:nth-child(4) {
+        grid-column: auto;
+        margin-top: 0 !important;
+        min-height: 440px;
+        width: 100%;
+      }
+    }
 
       .project,
       .project:nth-child(1),
