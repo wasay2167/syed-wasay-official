@@ -354,6 +354,11 @@
               behavior: "smooth"
             });
 
+            /* Keep the URL hash in sync so sections are linkable */
+            if (window.history && history.pushState) {
+              history.pushState(null, "", id);
+            }
+
           });
 
         });
@@ -470,6 +475,8 @@
 
         element.addEventListener("mousemove", (event) => {
 
+          if (typeof gsap === "undefined") return;
+
           if (window.innerWidth < 760) return;
 
           const rect =
@@ -495,6 +502,8 @@
         });
 
         element.addEventListener("mouseleave", () => {
+
+          if (typeof gsap === "undefined") return;
 
           gsap.to(element, {
             x: 0,
