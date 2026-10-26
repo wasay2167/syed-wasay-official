@@ -48,13 +48,14 @@
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Fonts -->
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- GSAP, then site script (all deferred, run in order) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
@@ -237,7 +238,7 @@
       </a>
 
       <div class="nav-links">
-        <a href="#work" class="nav-link">Work</a>
+        <a href="#portfolio" class="nav-link">Work</a>
         <a href="#services" class="nav-link">Services</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#faq" class="nav-link">FAQ</a>
@@ -268,7 +269,7 @@
   <div class="mobile-menu" id="mobileMenu">
 
     <div class="mobile-links">
-      <a href="#work">Work</a>
+      <a href="#portfolio">Work</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
@@ -321,7 +322,7 @@
 
           <div class="hero-actions reveal">
 
-            <a href="#work" class="button-primary">
+            <a href="#portfolio" class="button-primary">
               Explore my work
               <span>↓</span>
             </a>
@@ -543,329 +544,154 @@
 
 
     <!-- =====================================================
-         SELECTED WORK
+         PORTFOLIO SECTION
     ====================================================== -->
 
-    <section class="section" id="work">
-
+    <section id="portfolio" class="section portfolio">
       <div class="container">
-
-        <div class="work-header">
-
-          <div>
-
-            <div class="eyebrow reveal">
-              Selected work
-            </div>
-
-            <h2 class="section-heading reveal">
-              Things I've helped
-              bring to life.
-            </h2>
-
-          </div>
-
-          <p class="work-note reveal">
-            A selection of ecommerce, business and custom web
-            projects. Each one started with a different problem.
-          </p>
-
+        <div class="portfolio-head reveal">
+          <div class="eyebrow">04 / PORTFOLIO</div>
+          <h2 class="section-heading">Some of Our <span class="orange">Projects.</span></h2>
+          <!--<p>Selected projects across Shopify, WordPress and custom web development. Use the filters to explore the stack.</p> -->
         </div>
-
-
-        <div class="projects">
-
-          <!-- PROJECT 01 -->
-
-          <article class="project reveal">
-
-            <div class="project-visual">
-              <div class="project-shape"><img src="assets/img/proj/elee.png" alt="Ellegra Diamond — Shopify jewellery ecommerce store built by Syed Wasay" loading="lazy" decoding="async"></div>
-            </div>
-
-            <div class="project-content">
-
-              <div class="project-top">
-
-                <span class="project-index">
-                  01
-                </span>
-
-                <span class="project-type">
-                  Shopify · Ecommerce
-                </span>
-
-              </div>
-
-              <div class="project-bottom">
-
-                <div class="project-name">
-                  Ellegra<br>
-                  Diamond
-                </div>
-
-                <div class="project-description">
-                  Ecommerce experience for a
-                  jewellery brand.
-                </div>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- PROJECT 02 -->
-
-          <a class="project reveal" href="https://secretlingeries.com.pk/" target="_blank" rel="noopener noreferrer" aria-label="Secret Lingeries (opens in a new tab)">
-
-            <div class="project-visual">
-              <div class="project-shape"><img src="assets/img/proj/sec.png" alt="Secret Lingeries — Shopify retail storefront built by Syed Wasay" loading="lazy" decoding="async"></div>
-            </div>
-
-            <div class="project-content">
-
-              <div class="project-top">
-
-                <span class="project-index">
-                  02
-                </span>
-
-                <span class="project-type">
-                  Shopify · Retail
-                </span>
-
-              </div>
-
-              <div class="project-bottom">
-
-                <div class="project-name">
-                  Secret<br>
-                  Lingeries
-                </div>
-
-                <div class="project-description">
-                  A conversion-focused
-                  ecommerce storefront.
-                </div>
-
-              </div>
-
-            </div>
-
-          </a>
-
-
-          <!-- PROJECT 03 -->
-
-          <article class="project reveal">
-
-            <div class="project-visual">
-              <div class="project-shape"><img src="assets/img/proj/flaw.png" alt="Flawless Diary — WordPress beauty ecommerce website built by Syed Wasay" loading="lazy" decoding="async"></div>
-            </div>
-
-            <div class="project-content">
-
-              <div class="project-top">
-
-                <span class="project-index">
-                  03
-                </span>
-
-                <span class="project-type">
-                  WordPress
-                </span>
-
-              </div>
-
-              <div class="project-bottom">
-
-                <div class="project-name">
-                  Flawless<br>
-                  Diary
-                </div>
-
-                <div class="project-description">
-                  A clean and approachable
-                  beauty ecommerce experience.
-                </div>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- PROJECT 04 -->
-
-          <article class="project reveal">
-
-            <div class="project-visual">
-              <div class="project-shape"><img src="assets/img/proj/mls.png" alt="Magic Luxury Services — custom-built travel website by Syed Wasay" loading="lazy" decoding="async"></div>
-            </div>
-
-            <div class="project-content">
-
-              <div class="project-top">
-
-                <span class="project-index">
-                  04
-                </span>
-
-                <span class="project-type">
-                  Custom · Travel
-                </span>
-
-              </div>
-
-              <div class="project-bottom">
-
-                <div class="project-name">
-                  Magic<br>
-                  Luxury Services
-                </div>
-
-                <div class="project-description">
-                  Luxury travel experiences.
-                </div>
-
-              </div>
-
-            </div>
-
-          </article>
-
+        <div class="filters reveal" role="tablist" aria-label="Portfolio filters">
+          <button class="active" data-filter="all">All <span>40+</span></button>
+          <button data-filter="shopify">Shopify</button>
+          <button data-filter="wordpress">WordPress</button>
+          <button data-filter="custom">Custom Web</button>
         </div>
-
+        <div class="portfolio-grid reveal" id="portfolioGrid"></div>
+        <div class="portfolio-footer reveal">
+          <button class="button-secondary" id="loadMore">Show more projects <i class="fa-solid fa-plus" style="margin-left: 8px;"></i></button>
+        </div>
       </div>
-
     </section>
-<!-- =====================================================
-     WORKS SLIDER SECTION
-====================================================== -->
-<section class="section works-slider-section" id="client-works" aria-label="Client Works">
-  <div class="container">
-    <div class="works-slider-header">
-      <div class="eyebrow reveal">Brands & Projects</div>
-      <h2 class="section-heading reveal">Selected Client Works</h2>
-    </div>
-  </div>
 
-  <!-- Marquee Container -->
-  <div class="works-marquee-wrapper reveal">
-    
-    <!-- Row 1: Left Scrolling Track -->
-    <div class="works-marquee-track track-left">
-      <div class="works-marquee-content">
-        <span class="work-badge">Cliff Stitch</span>
-        <span class="work-badge">Peridot</span>
-        <span class="work-badge">Stepstone</span>
-        <span class="work-badge">Bin Sultan</span>
-        <span class="work-badge">Ellegra Diamond</span>
-        <span class="work-badge">Secret Lingerie</span>
-        <span class="work-badge">Flawless Diary</span>
-        <span class="work-badge">Turkglow</span>
-        <span class="work-badge">Niverajewelry</span>
-        <span class="work-badge">Scotsman Travel</span>
-        <span class="work-badge">Ai-On Smart Life</span>
-        <span class="work-badge">Kaldi Legacy</span>
-        <span class="work-badge">Ashraf Sourcing</span>
-        <span class="work-badge">Crown Global Trading</span>
-        <span class="work-badge">Progress Mountain</span>
-        <span class="work-badge">Khair Ul Wara</span>
-        <span class="work-badge">Agy Clothing</span>
-        <span class="work-badge">Seji Art</span>
-        <span class="work-badge">Aftab Impex</span>
-      </div>
-      <!-- Duplicate content for seamless infinite loop -->
-      <div class="works-marquee-content" aria-hidden="true">
-        <span class="work-badge">Cliff Stitch</span>
-        <span class="work-badge">Peridot</span>
-        <span class="work-badge">Stepstone</span>
-        <span class="work-badge">Bin Sultan</span>
-        <span class="work-badge">Ellegra Diamond</span>
-        <span class="work-badge">Secret Lingerie</span>
-        <span class="work-badge">Flawless Diary</span>
-        <span class="work-badge">Turkglow</span>
-        <span class="work-badge">Niverajewelry</span>
-        <span class="work-badge">Scotsman Travel</span>
-        <span class="work-badge">Ai-On Smart Life</span>
-        <span class="work-badge">Kaldi Legacy</span>
-        <span class="work-badge">Ashraf Sourcing</span>
-        <span class="work-badge">Crown Global Trading</span>
-        <span class="work-badge">Progress Mountain</span>
-        <span class="work-badge">Khair Ul Wara</span>
-        <span class="work-badge">Agy Clothing</span>
-        <span class="work-badge">Seji Art</span>
-        <span class="work-badge">Aftab Impex</span>
-      </div>
-    </div>
 
-    <!-- Row 2: Right Scrolling Track -->
-    <div class="works-marquee-track track-right">
-      <div class="works-marquee-content">
-        <span class="work-badge dark">Suri Jewelry</span>
-        <span class="work-badge dark">Fatima Mumtaz</span>
-        <span class="work-badge dark">FDM Commodities</span>
-        <span class="work-badge dark">Magic Luxury Services</span>
-        <span class="work-badge dark">Kenneyz Media City</span>
-        <span class="work-badge dark">Kenneyz Production</span>
-        <span class="work-badge dark">Kenneyz Music</span>
-        <span class="work-badge dark">Kenneyz Group</span>
-        <span class="work-badge dark">Amanda Marino Speaks</span>
-        <span class="work-badge dark">Brokenhorn Leather</span>
-        <span class="work-badge dark">Milano Bags</span>
-        <span class="work-badge dark">Renna Fashion</span>
-        <span class="work-badge dark">Elegance Step</span>
-        <span class="work-badge dark">Parish Footwear</span>
-        <span class="work-badge dark">CosmosBro</span>
-        <span class="work-badge dark">Muddy Figs</span>
-        <span class="work-badge dark">ILSPAK</span>
-        <span class="work-badge dark">Magic Remote UK</span>
-        <span class="work-badge dark">Alfredo Martini</span>
-        <span class="work-badge dark">Mirza Ads Expert</span>
-        <span class="work-badge dark">Caliber Wardrobe</span>
-        <span class="work-badge dark">Beauty Vente</span>
-        <span class="work-badge dark">HNA Apparel</span>
-        <span class="work-badge dark">Medical HRF</span>
-        <span class="work-badge dark">Duraton Safety</span>
-        <span class="work-badge dark">Babur Rayyan</span>
+    <!-- =====================================================
+         WORKS SLIDER SECTION
+    ====================================================== -->
+    <section class="section works-slider-section" id="client-works" aria-label="Client Works">
+      <div class="container">
+        <div class="works-slider-header">
+          <div class="eyebrow reveal">Brands & Projects</div>
+          <h2 class="section-heading reveal">Selected Client Works</h2>
+        </div>
       </div>
-      <!-- Duplicate content for seamless infinite loop -->
-      <div class="works-marquee-content" aria-hidden="true">
-        <span class="work-badge dark">Suri Jewelry</span>
-        <span class="work-badge dark">Fatima Mumtaz</span>
-        <span class="work-badge dark">FDM Commodities</span>
-        <span class="work-badge dark">Magic Luxury Services</span>
-        <span class="work-badge dark">Kenneyz Media City</span>
-        <span class="work-badge dark">Kenneyz Production</span>
-        <span class="work-badge dark">Kenneyz Music</span>
-        <span class="work-badge dark">Kenneyz Group</span>
-        <span class="work-badge dark">Amanda Marino Speaks</span>
-        <span class="work-badge dark">Brokenhorn Leather</span>
-        <span class="work-badge dark">Milano Bags</span>
-        <span class="work-badge dark">Renna Fashion</span>
-        <span class="work-badge dark">Elegance Step</span>
-        <span class="work-badge dark">Parish Footwear</span>
-        <span class="work-badge dark">CosmosBro</span>
-        <span class="work-badge dark">Muddy Figs</span>
-        <span class="work-badge dark">ILSPAK</span>
-        <span class="work-badge dark">Magic Remote UK</span>
-        <span class="work-badge dark">Alfredo Martini</span>
-        <span class="work-badge dark">Mirza Ads Expert</span>
-        <span class="work-badge dark">Caliber Wardrobe</span>
-        <span class="work-badge dark">Beauty Vente</span>
-        <span class="work-badge dark">HNA Apparel</span>
-        <span class="work-badge dark">Medical HRF</span>
-        <span class="work-badge dark">Duraton Safety</span>
-        <span class="work-badge dark">Babur Rayyan</span>
-      </div>
-    </div>
 
-  </div>
-</section>
+      <!-- Marquee Container -->
+      <div class="works-marquee-wrapper reveal">
+        
+        <!-- Row 1: Left Scrolling Track -->
+        <div class="works-marquee-track track-left">
+          <div class="works-marquee-content">
+            <span class="work-badge">Cliff Stitch</span>
+            <span class="work-badge">Peridot</span>
+            <span class="work-badge">Stepstone</span>
+            <span class="work-badge">Bin Sultan</span>
+            <span class="work-badge">Ellegra Diamond</span>
+            <span class="work-badge">Secret Lingerie</span>
+            <span class="work-badge">Flawless Diary</span>
+            <span class="work-badge">Turkglow</span>
+            <span class="work-badge">Niverajewelry</span>
+            <span class="work-badge">Scotsman Travel</span>
+            <span class="work-badge">Ai-On Smart Life</span>
+            <span class="work-badge">Kaldi Legacy</span>
+            <span class="work-badge">Ashraf Sourcing</span>
+            <span class="work-badge">Crown Global Trading</span>
+            <span class="work-badge">Progress Mountain</span>
+            <span class="work-badge">Khair Ul Wara</span>
+            <span class="work-badge">Agy Clothing</span>
+            <span class="work-badge">Seji Art</span>
+            <span class="work-badge">Aftab Impex</span>
+          </div>
+          <!-- Duplicate content for seamless infinite loop -->
+          <div class="works-marquee-content" aria-hidden="true">
+            <span class="work-badge">Cliff Stitch</span>
+            <span class="work-badge">Peridot</span>
+            <span class="work-badge">Stepstone</span>
+            <span class="work-badge">Bin Sultan</span>
+            <span class="work-badge">Ellegra Diamond</span>
+            <span class="work-badge">Secret Lingerie</span>
+            <span class="work-badge">Flawless Diary</span>
+            <span class="work-badge">Turkglow</span>
+            <span class="work-badge">Niverajewelry</span>
+            <span class="work-badge">Scotsman Travel</span>
+            <span class="work-badge">Ai-On Smart Life</span>
+            <span class="work-badge">Kaldi Legacy</span>
+            <span class="work-badge">Ashraf Sourcing</span>
+            <span class="work-badge">Crown Global Trading</span>
+            <span class="work-badge">Progress Mountain</span>
+            <span class="work-badge">Khair Ul Wara</span>
+            <span class="work-badge">Agy Clothing</span>
+            <span class="work-badge">Seji Art</span>
+            <span class="work-badge">Aftab Impex</span>
+          </div>
+        </div>
+
+        <!-- Row 2: Right Scrolling Track -->
+        <div class="works-marquee-track track-right">
+          <div class="works-marquee-content">
+            <span class="work-badge dark">Suri Jewelry</span>
+            <span class="work-badge dark">Fatima Mumtaz</span>
+            <span class="work-badge dark">FDM Commodities</span>
+            <span class="work-badge dark">Magic Luxury Services</span>
+            <span class="work-badge dark">Kenneyz Media City</span>
+            <span class="work-badge dark">Kenneyz Production</span>
+            <span class="work-badge dark">Kenneyz Music</span>
+            <span class="work-badge dark">Kenneyz Group</span>
+            <span class="work-badge dark">Amanda Marino Speaks</span>
+            <span class="work-badge dark">Brokenhorn Leather</span>
+            <span class="work-badge dark">Milano Bags</span>
+            <span class="work-badge dark">Renna Fashion</span>
+            <span class="work-badge dark">Elegance Step</span>
+            <span class="work-badge dark">Parish Footwear</span>
+            <span class="work-badge dark">CosmosBro</span>
+            <span class="work-badge dark">Muddy Figs</span>
+            <span class="work-badge dark">ILSPAK</span>
+            <span class="work-badge dark">Magic Remote UK</span>
+            <span class="work-badge dark">Alfredo Martini</span>
+            <span class="work-badge dark">Mirza Ads Expert</span>
+            <span class="work-badge dark">Caliber Wardrobe</span>
+            <span class="work-badge dark">Beauty Vente</span>
+            <span class="work-badge dark">HNA Apparel</span>
+            <span class="work-badge dark">Medical HRF</span>
+            <span class="work-badge dark">Duraton Safety</span>
+            <span class="work-badge dark">Babur Rayyan</span>
+          </div>
+          <!-- Duplicate content for seamless infinite loop -->
+          <div class="works-marquee-content" aria-hidden="true">
+            <span class="work-badge dark">Suri Jewelry</span>
+            <span class="work-badge dark">Fatima Mumtaz</span>
+            <span class="work-badge dark">FDM Commodities</span>
+            <span class="work-badge dark">Magic Luxury Services</span>
+            <span class="work-badge dark">Kenneyz Media City</span>
+            <span class="work-badge dark">Kenneyz Production</span>
+            <span class="work-badge dark">Kenneyz Music</span>
+            <span class="work-badge dark">Kenneyz Group</span>
+            <span class="work-badge dark">Amanda Marino Speaks</span>
+            <span class="work-badge dark">Brokenhorn Leather</span>
+            <span class="work-badge dark">Milano Bags</span>
+            <span class="work-badge dark">Renna Fashion</span>
+            <span class="work-badge dark">Elegance Step</span>
+            <span class="work-badge dark">Parish Footwear</span>
+            <span class="work-badge dark">CosmosBro</span>
+            <span class="work-badge dark">Muddy Figs</span>
+            <span class="work-badge dark">ILSPAK</span>
+            <span class="work-badge dark">Magic Remote UK</span>
+            <span class="work-badge dark">Alfredo Martini</span>
+            <span class="work-badge dark">Mirza Ads Expert</span>
+            <span class="work-badge dark">Caliber Wardrobe</span>
+            <span class="work-badge dark">Beauty Vente</span>
+            <span class="work-badge dark">HNA Apparel</span>
+            <span class="work-badge dark">Medical HRF</span>
+            <span class="work-badge dark">Duraton Safety</span>
+            <span class="work-badge dark">Babur Rayyan</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- =====================================================
          PROCESS
@@ -1260,14 +1086,6 @@
           >
             Instagram
           </a>
-<!--
-          <a
-            href="https://www.linkedin.com/in/syed-abdul-wasay-azeem-125a63319/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>-->
 
           <a
             href="https://wa.me/923428351577"
@@ -1290,17 +1108,12 @@
     </div>
 
   </footer>
-<a href="https://wa.me/923428351577?text=Hi%2C%20I%20want%20to%20discuss%20a%20project%20with%20you!" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="whatsapp-icon">
-    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.738 5.488 2.025 7.825L.5 29.5l5.888-1.55C8.675 29.263 11.275 30 16 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 27.5c-4.138 0-7.7-1.125-10.65-3.088l-.763-.5-3.138.825.837-3.05-.5-.813C2.875 22.2 2 19.2 2 16 2 8.268 8.268 2 16 2s14 6.268 14 14-6.268 14-14 14zm7.938-10.375c-.438-.225-2.588-1.275-2.988-1.425-.4-.15-.688-.225-.975.225-.3.438-1.125 1.425-1.375 1.725-.25.3-.5.338-.938.113-2.075-1.037-3.438-1.863-4.812-4.238-.363-.625.363-.58 1.05-1.938.113-.225.063-.425-.038-.625-.1-.2-.975-2.35-1.338-3.213-.35-.85-.713-.738-.975-.75h-.838c-.3 0-.788.113-1.2.563-.413.45-1.575 1.537-1.575 3.75s1.613 4.35 1.838 4.65c.225.3 3.175 4.85 7.7 6.8 1.075.463 1.913.738 2.563.95 1.075.337 2.05.288 2.825.175.863-.125 2.588-1.05 2.95-2.063.363-1.012.363-1.875.25-2.063-.113-.187-.413-.3-.85-.525z"/>
-  </svg>
-</a>
 
-  <!-- =======================================================
-       JAVASCRIPT
-  ======================================================== -->
-
-
+  <a href="https://wa.me/923428351577?text=Hi%2C%20I%20want%20to%20discuss%20a%20project%20with%20you!" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="whatsapp-icon">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.738 5.488 2.025 7.825L.5 29.5l5.888-1.55C8.675 29.263 11.275 30 16 30c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 27.5c-4.138 0-7.7-1.125-10.65-3.088l-.763-.5-3.138.825.837-3.05-.5-.813C2.875 22.2 2 19.2 2 16 2 8.268 8.268 2 16 2s14 6.268 14 14-6.268 14-14 14zm7.938-10.375c-.438-.225-2.588-1.275-2.988-1.425-.4-.15-.688-.225-.975.225-.3.438-1.125 1.425-1.375 1.725-.25.3-.5.338-.938.113-2.075-1.037-3.438-1.863-4.812-4.238-.363-.625.363-.58 1.05-1.938.113-.225.063-.425-.038-.625-.1-.2-.975-2.35-1.338-3.213-.35-.85-.713-.738-.975-.75h-.838c-.3 0-.788.113-1.2.563-.413.45-1.575 1.537-1.575 3.75s1.613 4.35 1.838 4.65c.225.3 3.175 4.85 7.7 6.8 1.075.463 1.913.738 2.563.95 1.075.337 2.05.288 2.825.175.863-.125 2.588-1.05 2.95-2.063.363-1.012.363-1.875.25-2.063-.113-.187-.413-.3-.85-.525z"/>
+    </svg>
+  </a>
 
 </body>
 </html>
