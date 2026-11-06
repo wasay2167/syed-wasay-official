@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Pass – Generate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">QR Pass</a>
+    <nav>
+      <a class="on" href="index.html">Generate</a>
+      <a href="scan.html">Scan</a>
+    </nav>
+  </header>
+
+  <main class="gen">
+    <section class="panel">
+      <h1>Create codes</h1>
+      <p class="hint">Each code gets its own number, printed under the QR and saved in the PNG. Only the Scan page can read them.</p>
+
+      <div class="field">
+        <label for="prefix">Number prefix</label>
+        <input id="prefix" value="qr-cd-" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="start">Start at</label>
+        <input id="start" type="number" min="1" value="1">
+      </div>
+      <div class="field">
+        <label for="count">How many (1–50)</label>
+        <input id="count" type="number" min="1" max="50" value="1">
+      </div>
+
+      <button id="make" class="btn" type="button">Generate codes</button>
+      <button id="all" class="btn ghost" type="button" hidden>Download all as PNG</button>
+      <p class="note" id="status" role="status"></p>
+    </section>
+
+    <section id="grid" class="grid protect" aria-live="polite">
+      <p class="empty">Your codes will appear here. Set a prefix and press Generate codes.</p>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="assets/crypto.js"></script>
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var grid = $("grid"), statusEl = $("status"), allBtn = $("all");
+    var made = []; // {canvas, label}
+
+    // restore last prefix / next number on this browser
+    try {
+      var np = localStorage.getItem("qrc_prefix");
+      var nn = localStorage.getItem("qrc_next");
+      if (np) $("prefix").value = np;
+      if (nn) $("start").value = nn;
+    } catch (e) {}
+
+    // block context menu, drag and copy on the code area
+    ["contextmenu", "dragstart", "copy", "cut", "selectstart"].forEach(function (ev) {
+      grid.addEventListener(ev, function (e) { e.preventDefault(); });
+    });
+
+    // draw QR + number label on one canvas (this is what gets downloaded)
+    function draw(label, payload) {
+      var qr = qrcode(0, "M");
+      qr.addData(payload);
+      qr.make();
+      var n = qr.getModuleCount(), quiet = 4;
+      var scale = Math.max(4, Math.floor(520 / (n + quiet * 2)));
+      var qs = (n + quiet * 2) * scale;
+      var W = qs + 80, H = qs + 150;
+
+      var c = document.createElement("canvas");
+      c.width = W; c.height = H;
+      var x = c.getContext("2d");
+      x.fillStyle = "#ffffff";
+      x.fillRect(0, 0, W, H);
+
+      x.fillStyle = "#000000";
+      var ox = 40 + quiet * scale, oy = 40 + quiet * scale;
+      for (var r = 0; r < n; r++) {
+        for (var k = 0; k < n; k++) {
+          if (qr.isDark(r, k)) x.fillRect(ox + k * scale, oy + r * scale, scale, scale);
+        }
+      }
+
+      x.fillStyle = "#17231f";
+      x.textAlign = "center";
+      x.textBaseline = "middle";
+      x.font = '700 44px "Familjen Grotesk", Arial, sans-serif';
+      x.fillText(label, W / 2, qs + 95);
+      return c;
+    }
+
+    function download(canvas, label) {
+      canvas.toBlob(function (blob) {
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = label.replace(/[^\w-]+/g, "_") + ".png";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1500);
+      }, "image/png");
+    }
+
+    $("make").addEventListener("click", async function () {
+      var prefix = $("prefix").value.trim();
+      var start = parseInt($("start").value, 10);
+      var count = parseInt($("count").value, 10);
+
+      if (!prefix) { statusEl.textContent = "Enter a number prefix, for example qr-cd-."; return; }
+      if (!(start >= 1)) { statusEl.textContent = "Start number must be 1 or higher."; return; }
+      if (!(count >= 1 && count <= 50)) { statusEl.textContent = "Choose between 1 and 50 codes."; return; }
+
+      statusEl.textContent = "Generating…";
+      grid.innerHTML = "";
+      made = [];
+
+      try {
+        for (var i = 0; i < count; i++) {
+          var num = start + i;
+          var label = prefix + num;
+          var payload = await QRC.seal({ id: label, n: num, iss: Date.now() });
+          var canvas = draw(label, payload);
+          made.push({ canvas: canvas, label: label });
+
+          var fig = document.createElement("figure");
+          fig.className = "ticket";
+          fig.appendChild(canvas);
+          var cap = document.createElement("figcaption");
+          var span = document.createElement("span");
+          span.textContent = label;
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "btn small";
+          btn.textContent = "Download PNG";
+          (function (c, l) { btn.addEventListener("click", function () { download(c, l); }); })(canvas, label);
+          cap.appendChild(span);
+          cap.appendChild(btn);
+          fig.appendChild(cap);
+          grid.appendChild(fig);
+        }
+        allBtn.hidden = made.length < 2;
+        statusEl.textContent = made.length + (made.length === 1 ? " code ready." : " codes ready.");
+        try {
+          localStorage.setItem("qrc_prefix", prefix);
+          localStorage.setItem("qrc_next", String(start + count));
+          $("start").value = start + count;
+        } catch (e) {}
+      } catch (err) {
+        statusEl.textContent = "Could not generate codes. Open the page over https or http://localhost and try again.";
+      }
+    });
+
+    allBtn.addEventListener("click", function () {
+      made.forEach(function (m, i) {
+        setTimeout(function () { download(m.canvas, m.label); }, i * 300);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

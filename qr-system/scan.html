@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Pass – Scan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="index.html">QR Pass</a>
+    <nav>
+      <a href="index.html">Generate</a>
+      <a class="on" href="scan.html">Scan</a>
+    </nav>
+  </header>
+
+  <main class="scan">
+    <h1>Scan a code</h1>
+    <p class="hint">Point your camera at a QR Pass code. Codes from other apps, or copies that were altered, are rejected.</p>
+
+    <div class="viewport" id="viewport">
+      <video id="video" playsinline muted></video>
+      <div class="frame"></div>
+      <div class="idle" id="idle">Camera is off. Press Start camera.</div>
+    </div>
+
+    <button id="start" class="btn" type="button">Start camera</button>
+    <p class="note" id="status" role="status"></p>
+
+    <section id="result" class="result" hidden aria-live="polite">
+      <p class="tag" id="tag"></p>
+      <p class="big" id="big"></p>
+      <p class="meta" id="meta"></p>
+      <button id="again" class="btn ghost" type="button">Scan next code</button>
+    </section>
+  </main>
+
+  <canvas id="work" hidden></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+  <script src="assets/crypto.js"></script>
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var video = $("video"), work = $("work"), ctx = work.getContext("2d", { willReadFrequently: true });
+    var viewport = $("viewport"), statusEl = $("status"), startBtn = $("start");
+    var result = $("result"), stream = null, running = false, busy = false, last = 0;
+
+    function seenCount(id) {
+      try {
+        var map = JSON.parse(localStorage.getItem("qrc_seen") || "{}");
+        var n = (map[id] || 0) + 1;
+        map[id] = n;
+        localStorage.setItem("qrc_seen", JSON.stringify(map));
+        return n;
+      } catch (e) { return 1; }
+    }
+
+    function show(ok, tag, big, meta) {
+      result.className = "result " + (ok ? "ok" : "bad");
+      $("tag").textContent = tag;
+      $("big").textContent = big;
+      $("meta").textContent = meta;
+      result.hidden = false;
+    }
+
+    async function handle(text) {
+      busy = true;
+      try {
+        var data = await QRC.open(text);
+        var times = seenCount(data.id);
+        var when = data.iss ? new Date(data.iss).toLocaleString() : "unknown date";
+        show(true, "Valid code", data.id,
+          "Created " + when + ". " +
+          (times === 1 ? "First scan on this device." : "Scanned " + times + " times on this device."));
+      } catch (e) {
+        show(false, "Not accepted", "Unknown code",
+          "This is not a QR Pass code, or it was changed after it was created.");
+      }
+      stopLoop();
+    }
+
+    function tick(now) {
+      if (!running) return;
+      if (!busy && video.readyState >= 2 && now - last > 120) {
+        last = now;
+        var w = video.videoWidth, h = video.videoHeight;
+        if (w && h) {
+          work.width = w; work.height = h;
+          ctx.drawImage(video, 0, 0, w, h);
+          var img = ctx.getImageData(0, 0, w, h);
+          var code = jsQR(img.data, w, h, { inversionAttempts: "dontInvert" });
+          if (code && code.data) handle(code.data);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function stopLoop() { running = false; }
+
+    async function startCamera() {
+      statusEl.textContent = "";
+      result.hidden = true;
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        statusEl.textContent = "This browser cannot open the camera. Use https (GitHub Pages) or localhost.";
+        return;
+      }
+      try {
+        if (!stream) {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: "environment" } },
+            audio: false
+          });
+          video.srcObject = stream;
+          await video.play();
+        }
+        viewport.classList.add("live");
+        startBtn.textContent = "Stop camera";
+        busy = false;
+        running = true;
+        requestAnimationFrame(tick);
+      } catch (e) {
+        statusEl.textContent = "Camera blocked. Allow camera access in the browser settings, then press Start camera.";
+      }
+    }
+
+    function stopCamera() {
+      running = false;
+      if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; }
+      video.srcObject = null;
+      viewport.classList.remove("live");
+      startBtn.textContent = "Start camera";
+    }
+
+    startBtn.addEventListener("click", function () {
+      if (stream) stopCamera(); else startCamera();
+    });
+
+    $("again").addEventListener("click", function () {
+      result.hidden = true;
+      busy = false;
+      if (!stream) { startCamera(); return; }
+      running = true;
+      requestAnimationFrame(tick);
+    });
+
+    document.addEventListener("visibilitychange", function () { if (document.hidden) stopCamera(); });
+  })();
+  </script>
+</body>
+</html>
